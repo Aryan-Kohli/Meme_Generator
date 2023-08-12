@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+body{
+    color: rgba(255, 255, 255, 0.87);
+      background-color: #242424;
+}
+.newimgbtn{
+  background-color: white;
+}
+.memeimg{
+
+  max-height: 800px;
+  max-width: 600px;
+  /* position: relative; */
+}
+h3
+{
+  color:black;
+}
+.memeimg img{
+}
+.meme{
+  position: relative;
+}
+#topText{
+  position: absolute;
+  top:0%;
+  left:50%;
+  color: red;
+  transform: translateX(-50%);
+  font-family: 'Roboto Slab', serif;
+  /* font-size: 2.5em; */
+}
+#topText,#bottomText{
+  font-size: 40px;
+  /* text-shadow: 2px 2px 2px  rgb(241, 241, 241); */
+  font-weight: 900;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+#bottomText{
+  position: absolute;
+    bottom: 0%;
+    left: 50%;
+    color: rgb(0, 208, 90);
+    font-family: 'Roboto Slab', serif;
+    transform: translateX(-50%);
+    /* font-size: 2.5em; */
+  }
+  .Footer{
+    position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      color: rgb(255, 3, 3);
+      text-align: center;
+      font-size: 2em;
+      height: 6%;
+    }
+    .btnn{
+      /* font-size: 1em; */
+      width: 250px;
+      font-size: 20px;
+      font-family: 'Roboto Slab', serif;
+      color: white;
+      background-color: #000000;
+      margin-top: 20px;
+      box-shadow: 6px 2px 0 0  white;
+  padding: 15px 20px;
+}
