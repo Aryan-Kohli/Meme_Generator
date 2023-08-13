@@ -7,7 +7,7 @@ import Meme from "./Meme";
 function App() {
   return (
     <>
-      <div>
+      <div className="main">
         <Header />
         <Meme />
         {/* <Footer /> */}

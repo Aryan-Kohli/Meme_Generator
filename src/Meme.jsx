@@ -4,8 +4,8 @@ export default function Meme() {
   const [meme, setmeme] = React.useState({
     topText: "",
     bottomText: "",
-    textColorTop: "white",
-    textColorBottom: "white",
+    textColorTop: "black",
+    textColorBottom: "black",
     randomImage: "https://i.imgflip.com/26jxvz.jpg",
   });
   const [allmemes, setAllmemes] = React.useState([]);
@@ -47,7 +47,7 @@ export default function Meme() {
       context.drawImage(img, 0, 0, canvas.width, canvas.height);
 
       // Add top text to the canvas
-      context.font = "900 40px Roboto Slab";
+      context.font = "900 40px Merriweather";
       context.textAlign = "center";
       const topText = meme.topText;
       // context.textShadow = "2px 2px 2px  rgb(241, 241, 241)";
@@ -57,7 +57,7 @@ export default function Meme() {
       context.fillStyle = meme.textColorTop;
       context.fillText(topText, canvas.width / 2, 40); // Draw the text
 
-      context.font = "900  40px Roboto Slab";
+      context.font = "900  40px Merriweather";
       context.textAlign = "center";
       const bottomText = meme.bottomText;
       context.strokeStyle = "black";
@@ -80,79 +80,75 @@ export default function Meme() {
   }
   return (
     <>
-      <div className="textimp container">
+      <div className="container mainMemeDiv">
         <div className="row">
-          <div className="col-md-4 offset-md-2">
-            <h2>Top Text</h2>
-          </div>
-          <div className="col-md-4">
-            <h2>Bottom Text</h2>
-          </div>
-        </div>
-        <form>
-          <div className="row mt-2">
-            <div className="col-md-4 offset-md-2">
-              <input
-                type="text"
-                placeholder="firstname"
-                onChange={updateText}
-                name="topText"
-              ></input>
-            </div>
-            <div className="col-md-4">
-              <input
-                type="text"
-                placeholder="secondname"
-                onChange={updateText}
-                name="bottomText"
-              ></input>{" "}
+          <div className="col-md-5">
+            <div className="row">
+              <div className="meme">
+                <img src={meme.randomImage} className="memeimg" id="pic"></img>
+                <h3 id="topText" style={{ color: meme.textColorTop }}>
+                  {meme.topText}
+                </h3>
+                <h3 id="bottomText" style={{ color: meme.textColorBottom }}>
+                  {meme.bottomText}
+                </h3>
+              </div>
             </div>
           </div>
-          <div className="row mt-2">
-            <div className="col-md-4 offset-md-2">
-              <label htmlFor="textColorTop">CHANGE COLOR </label>
-              <input
-                type="color"
-                onChange={colorChange}
-                name="textColorTop"
-                // value={meme.textColor}
-              ></input>
+          <div className="col-md-7">
+            <form>
+              <div className="row">
+                <div className="col-md-5 offset-md-2  textdivs">
+                  <h2>Top Text</h2>
+                  <input
+                    type="text"
+                    placeholder="Top Text"
+                    onChange={updateText}
+                    name="topText"
+                    className="textinp"
+                  ></input>
+                  <label htmlFor="textColorTop">CHANGE COLOR </label>
+                  <input
+                    type="color"
+                    onChange={colorChange}
+                    name="textColorTop"
+                    value={meme.textColor}
+                    className="colorchange"
+                  ></input>
+                </div>
+                <div className="col-md-5  textdivs">
+                  <h2>Bottom Text</h2>
+                  <input
+                    type="text"
+                    placeholder="Bottom Text"
+                    onChange={updateText}
+                    name="bottomText"
+                    className="textinp"
+                  ></input>
+                  <label htmlFor="textcolorBottom">CHANGE COLOR</label>
+                  <input
+                    type="color"
+                    onChange={colorChange}
+                    name="textColorBottom"
+                    value={meme.textColor}
+                    className="colorchange"
+                  ></input>
+                </div>
+              </div>
+            </form>
+
+            <div className="row">
+              <div className="col-md-4 offset-md-2">
+                <button type="button" className="btnn" onClick={downloadImg}>
+                  Image download
+                </button>
+              </div>
+              <div className="col mb-5">
+                <button className="btnn" type="button" onClick={getnewimage}>
+                  New Image
+                </button>
+              </div>
             </div>
-            <div className="col-md-4">
-              <label htmlFor="textcolorBottom">CHANGE COLOR</label>
-              <input
-                type="color"
-                onChange={colorChange}
-                name="textColorBottom"
-                // value={meme.textColor}
-              ></input>
-            </div>
-          </div>
-          <div className="row"></div>
-        </form>
-      </div>
-      <div className="container ">
-        <div className="row">
-          <div className="col-md-4 offset-md-2">
-            <button type="button" className="btnn" onClick={downloadImg}>
-              Image download
-            </button>
-          </div>
-          <div className="col mb-5">
-            <button className="btnn" onClick={getnewimage}>
-              New Image
-            </button>
-          </div>
-        </div>
-        <div className="row">
-          <div className="meme">
-            <img src={meme.randomImage} className="memeimg" id="pic"></img>
-            <h3 id="topText" style={{ color: meme.textColorTop }}>
-              {meme.topText}
-            </h3>
-            <h3 id="bottomText" style={{ color: meme.textColorBottom }}>
-              {meme.bottomText}
-            </h3>
           </div>
         </div>
       </div>
